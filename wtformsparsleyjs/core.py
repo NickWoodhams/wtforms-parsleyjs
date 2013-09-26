@@ -17,7 +17,8 @@ from wtforms.widgets import TextInput as _TextInput, PasswordInput as _PasswordI
 from wtforms.fields import TextField as _TextField, BooleanField as _BooleanField, \
     DecimalField as _DecimalField, IntegerField as _IntegerField, \
     FloatField as _FloatField, PasswordField as _PasswordField, \
-    SelectField as _SelectField, TextAreaField as _TextAreaField
+    SelectField as _SelectField, TextAreaField as _TextAreaField, \
+    SelectMultipleField as _SelectMultipleField
 
 
 def parsley_kwargs(field, kwargs):
@@ -199,3 +200,8 @@ class PasswordField(_PasswordField):
 class SelectField(_SelectField):
     def __init__(self, *args, **kwargs):
         super(SelectField, self).__init__(widget=Select(), *args, **kwargs)
+
+
+class SelectMultipleField(_SelectMultipleField):
+    def __init__(self, *args, **kwargs):
+        super(SelectMultipleField, self).__init__(widget=Select(), *args, **kwargs)
