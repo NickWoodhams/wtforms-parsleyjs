@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+    __application_name__
+    ~~~~~~~~
+
+    __description__
+"""
 __author__ = 'Johannes Gehrs (jgehrs@gmail.com)'
 
 import re
@@ -5,13 +12,12 @@ import copy
 
 from wtforms.validators import Length, NumberRange, Email, EqualTo, IPAddress, \
     Required, Regexp, URL, AnyOf
-from wtforms import TextField
 from wtforms.widgets import TextInput as _TextInput, PasswordInput as _PasswordInput, \
     CheckboxInput as _CheckboxInput, Select as _Select, Input
 from wtforms.fields import TextField as _TextField, BooleanField as _BooleanField, \
     DecimalField as _DecimalField, IntegerField as _IntegerField, \
     FloatField as _FloatField, PasswordField as _PasswordField, \
-    SelectField as _SelectField
+    SelectField as _SelectField, TextAreaField as _TextAreaField
 
 
 def parsley_kwargs(field, kwargs):
@@ -158,6 +164,11 @@ class Select(_Select):
 class TextField(_TextField):
     def __init__(self, *args, **kwargs):
         super(TextField, self).__init__(widget=TextInput(), *args, **kwargs)
+
+
+class TextAreaField(_TextAreaField):
+    def __init__(self, *args, **kwargs):
+        super(TextAreaField, self).__init__(widget=TextInput(), *args, **kwargs)
 
 
 class IntegerField(_IntegerField):
